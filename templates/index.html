@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic Image Analyzer</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="text-center mb-4">Cinematic Image Analyzer</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Upload Image</h5>
+                        <div class="upload-area" id="dropZone">
+                            <input type="file" id="fileInput" class="d-none" accept=".jpg,.jpeg,.png,.gif">
+                            <div class="text-center p-4">
+                                <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
+                                <p>Drag and drop an image here or click to select</p>
+                                <small class="text-muted">Supported formats: JPG, PNG, GIF (max 5MB)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Image Preview</h5>
+                        <div id="previewContainer" class="text-center">
+                            <img id="imagePreview" class="img-fluid d-none" alt="Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Analysis Results</h5>
+                        <div id="loadingSpinner" class="text-center d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <div id="results" class="d-none">
+                            <div class="mb-4">
+                                <h6>Image Dimensions</h6>
+                                <p id="dimensions" class="mb-0"></p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6>Color Scheme</h6>
+                                <div id="colorScheme" class="color-bars"></div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h6>Lighting Analysis (IRE Values)</h6>
+                                <div class="lighting-analysis">
+                                    <div class="mb-3">
+                                        <label>Key Light</label>
+                                        <div class="progress">
+                                            <div id="keyLight" class="progress-bar bg-primary" role="progressbar"></div>
+                                        </div>
+                                        <small id="keyLightValue" class="text-muted"></small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Fill Light</label>
+                                        <div class="progress">
+                                            <div id="fillLight" class="progress-bar bg-secondary" role="progressbar"></div>
+                                        </div>
+                                        <small id="fillLightValue" class="text-muted"></small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Background Light</label>
+                                        <div class="progress">
+                                            <div id="bgLight" class="progress-bar bg-info" role="progressbar"></div>
+                                        </div>
+                                        <small id="bgLightValue" class="text-muted"></small>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6>Lighting Ratios</h6>
+                                        <p id="lightingRatios" class="mb-0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
